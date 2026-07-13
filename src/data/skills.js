@@ -4,7 +4,7 @@ export const skillCategories = [
     items: [
       "React.js", "Next.js", "React Native", "Expo", "NativeWind",
       "Three.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS",
-      "Material UI", "Redux Toolkit",
+      "Material UI", "Redux Toollllkit",
     ],
   },
   {
