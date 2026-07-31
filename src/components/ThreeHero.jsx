@@ -9,7 +9,8 @@ export default function ThreeHero() {
     if (!canvas) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x00022a);
+    // Near-black background.
+    scene.background = new THREE.Color(0x000000);
 
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
     camera.position.set(0, 1.6, 4.5);
@@ -18,18 +19,23 @@ export default function ThreeHero() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputEncoding = THREE.sRGBEncoding;
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+    // Barely-there ambient — most of the earlier "brightness" was
+    // ambient light flatly lifting every surface, orb included.
+    const ambient = new THREE.AmbientLight(0xffffff, 0.05); // was 0.15
+
     scene.add(ambient);
 
-    const keyLight = new THREE.PointLight(0x0654b0, 1.2, 15);
+    // Key light cut way down — this alone was doing most of the work
+    // making the orb look glowy/lit-up rather than dark and moody.
+    const keyLight = new THREE.PointLight(0x061c3d, 0.3, 15); // was 0x083a7a @ 0.65
     keyLight.position.set(2.5, 2, 3);
     scene.add(keyLight);
 
-    const fillLight = new THREE.PointLight(0x9598a1, 0.65, 16);
+    const fillLight = new THREE.PointLight(0x1a1f26, 0.12, 16); // was 0x5b6472 @ 0.3
     fillLight.position.set(-2.5, 1.5, 2.5);
     scene.add(fillLight);
 
-    const rimLight = new THREE.PointLight(0xffffff, 0.2, 20);
+    const rimLight = new THREE.PointLight(0xffffff, 0.04, 20); // was 0.1
     rimLight.position.set(0, -2, 4);
     scene.add(rimLight);
 
@@ -38,22 +44,23 @@ export default function ThreeHero() {
 
     const orbGeometry = new THREE.SphereGeometry(1.05, 64, 64);
     const orbMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x0654b0,
-      roughness: 0.18,
-      metalness: 0.55,
-      transmission: 0.6,
+      // Near-black navy — the color itself was still fairly saturated before.
+      color: 0x02060f,
+      roughness: 0.55,          // was 0.32 — much less specular highlight
+      metalness: 0.25,          // was 0.4
+      transmission: 0.18,       // was 0.4 — far less glassy glow-through
       thickness: 1.6,
-      clearcoat: 0.35,
-      clearcoatRoughness: 0.12,
+      clearcoat: 0.05,          // was 0.15
+      clearcoatRoughness: 0.4,  // was 0.25
     });
     const orb = new THREE.Mesh(orbGeometry, orbMaterial);
     group.add(orb);
 
     const ringGeometry = new THREE.TorusGeometry(1.8, 0.06, 24, 120);
     const ringMaterial = new THREE.MeshBasicMaterial({
-      color: 0x0654b0,
+      color: 0x0a1f3d, // darker than before
       transparent: true,
-      opacity: 0.28,
+      opacity: 0.1,    // was 0.18
     });
     const ring = new THREE.Mesh(ringGeometry, ringMaterial);
     ring.rotation.x = Math.PI / 2;
@@ -61,9 +68,9 @@ export default function ThreeHero() {
 
     const accentGeometry = new THREE.TorusGeometry(2.4, 0.02, 12, 120);
     const accentMaterial = new THREE.MeshBasicMaterial({
-      color: 0x9598a1,
+      color: 0x30363f, // darker grey than before
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.08,   // was 0.12
     });
     const accent = new THREE.Mesh(accentGeometry, accentMaterial);
     accent.rotation.x = Math.PI / 2;
@@ -83,10 +90,10 @@ export default function ThreeHero() {
     particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0xe2e8f0,
+      color: 0x4b5563, // dimmer, darker grey instead of slate-300
       size: 0.04,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.3,    // was 0.45
     });
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
