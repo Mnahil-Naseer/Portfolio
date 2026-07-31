@@ -2,20 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: #00022A;
+  --color-background-secondary: #010F55;
+  --color-surface: #22242A;
+  --color-accent: #0654B0;
+  --color-accent-deep: #010F55;
+  --color-text: #ffffff;
+  --color-text-muted: #9598A1;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   @apply bg-base-950 text-ink-100 font-body antialiased;
+  background-color: var(--color-background);
   background-image:
-    radial-gradient(circle at 15% 0%, rgba(139,92,246,0.14), transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(34,211,238,0.10), transparent 40%);
+    radial-gradient(circle at 15% 0%, rgba(6,84,176,0.16), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(149,152,161,0.12), transparent 40%);
   background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(139,92,246,0.35);
+  background: rgba(6,84,176,0.35);
 }
 
 .bg-grid {
@@ -34,7 +45,7 @@ body {
 }
 
 .glass-hover {
-  @apply transition-all duration-300 hover:border-violet-500/40 hover:shadow-glow hover:-translate-y-1;
+  @apply transition-all duration-300 hover:border-cyan-400/40 hover:shadow-glow hover:-translate-y-1;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,29 +1,31 @@
 /** @type {import('tailwindcss').Config} */
+import theme from "./src/theme/theme.js";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
         base: {
-          950: "#08080c",
-          900: "#0b0b12",
-          800: "#12121b",
-          700: "#1a1a26",
+          950: theme.palette.background,
+          900: theme.palette.backgroundSecondary,
+          800: theme.colors.royalBlue,
+          700: theme.colors.charcoal,
         },
         violet: {
-          400: "#a78bfa",
-          500: "#8b5cf6",
-          600: "#7c3aed",
+          400: theme.colors.slate,
+          500: theme.colors.royalBlue,
+          600: theme.palette.accentHover,
         },
         cyan: {
-          300: "#67e8f9",
-          400: "#22d3ee",
+          300: theme.colors.slate,
+          400: theme.colors.royalBlue,
         },
         ink: {
-          100: "#f5f5f8",
-          300: "#c7c7d1",
-          500: "#8b8b98",
-          700: "#55555f",
+          100: theme.palette.textPrimary,
+          300: theme.palette.textSecondary,
+          500: theme.colors.slate,
+          700: theme.colors.charcoal,
         },
       },
       fontFamily: {
@@ -32,12 +34,12 @@ export default {
         mono: ["JetBrains Mono", "monospace"],
       },
       backgroundImage: {
-        "grad-primary": "linear-gradient(135deg, #8b5cf6 0%, #6366f1 45%, #22d3ee 100%)",
-        "grad-radial": "radial-gradient(circle at 50% 0%, rgba(139,92,246,0.18), transparent 60%)",
+        "grad-primary": `linear-gradient(135deg, ${theme.colors.royalBlue} 0%, ${theme.palette.accentHover} 45%, ${theme.colors.royalBlue} 100%)`,
+        "grad-radial": `radial-gradient(circle at 50% 0%, ${theme.colors.royalBlue}33, transparent 60%)`,
       },
       boxShadow: {
-        glow: "0 0 40px -8px rgba(139,92,246,0.55)",
-        "glow-cyan": "0 0 40px -10px rgba(34,211,238,0.45)",
+        glow: `0 0 40px -8px ${theme.colors.royalBlue}88`,
+        "glow-cyan": `0 0 40px -10px ${theme.colors.slate}59`,
       },
       keyframes: {
         blink: {

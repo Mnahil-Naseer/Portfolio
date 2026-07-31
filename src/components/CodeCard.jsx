@@ -3,17 +3,22 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 const codeLines = [
-  "import { createApp } from 'react';",
-  "import { build } from 'vite';",
+  "import { StrictMode } from 'react';",
+  "import { createRoot } from 'react-dom/client';",
   "import App from './App';",
   "",
   "const developer = {",
   "  name: 'Mnahil Naseer',",
   "  role: 'Full Stack & Mobile Developer',",
+  "  stack: ['React', 'Node.js', 'Supabase', 'React Native'],",
   "  focus: 'Product-quality experiences',",
   "};",
   "",
-  "export default developer;",
+  "createRoot(document.getElementById('root')).render(",
+  "  <StrictMode>",
+  "    <App />",
+  "  </StrictMode>",
+  ");",
 ];
 
 export default function CodeCard() {
@@ -29,7 +34,7 @@ export default function CodeCard() {
 
   return (
     <motion.div
-      className="relative rounded-[2rem] border border-white/10 bg-[#060b18]/90 shadow-glow backdrop-blur-xl px-6 py-6 overflow-hidden"
+      className="relative mx-auto w-full max-w-[460px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-base-900/90 px-3 py-3 shadow-glow backdrop-blur-xl sm:max-w-[520px] sm:px-5 sm:py-5"
       style={{ rotateX, rotateY, perspective: 1200 }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -46,20 +51,20 @@ export default function CodeCard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.24),_transparent_35%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(56,189,248,0.16),_transparent_20%)] pointer-events-none" />
-      <div className="relative flex flex-col gap-5">
-        <div className="flex items-center justify-between gap-3">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(6,84,176,0.24),_transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(149,152,161,0.16),_transparent_20%)]" />
+      <div className="relative flex flex-col gap-3 sm:gap-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-ink-500">Hero code</p>
-            <h3 className="mt-2 text-2xl font-semibold text-ink-100">Interactive code preview</h3>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-ink-500 sm:text-xs">~/portfolio/src</p>
+            <h3 className="mt-1 text-lg font-semibold text-ink-100 sm:mt-2 sm:text-xl">$ npm run dev</h3>
           </div>
-          <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-ink-300">
-            Hover to move
+          <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] text-ink-300 sm:px-3 sm:text-xs">
+            Interactive
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-[#020617]/80 p-5 font-mono text-sm text-ink-300 overflow-x-auto">
+        <div className="overflow-x-auto rounded-2xl border border-white/10 bg-base-950/80 p-3 font-mono text-[11px] text-ink-300 sm:p-4 sm:text-sm">
           {lines.map(({ line, index }) => (
             <div key={index} className="flex gap-3 items-start">
               <span className="w-6 text-right text-ink-500 select-none">{index + 1}</span>
@@ -68,14 +73,14 @@ export default function CodeCard() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-row items-center justify-between gap-3">
           <div className="space-y-1">
-            <p className="text-sm text-ink-400">Built for modern product quality.</p>
-            <p className="text-sm text-ink-400">Smooth motion, clean code, polished delivery.</p>
+            <p className="text-xs text-ink-400 sm:text-sm">React · Node.js · Supabase; the stack behind every project here.</p>
+            <p className="text-xs text-ink-400 sm:text-sm">Shipped and deployed, not just designed.</p>
           </div>
           <a
             href="/projects"
-            className="inline-flex items-center justify-center rounded-full bg-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-violet-400"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#0654B0_0%,#010F55_100%)] px-3.5 py-2 text-[11px] font-semibold text-white shadow-[0_0_30px_-8px_rgba(6,84,176,0.5)] transition hover:bg-[linear-gradient(135deg,#010F55_0%,#0654B0_100%)] sm:px-4 sm:py-2.5 sm:text-xs"
           >
             Explore projects
             <ExternalLink size={14} />

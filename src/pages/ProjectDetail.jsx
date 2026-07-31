@@ -1,9 +1,9 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
-import Button from "../components/ui/Button";
 import Pill from "../components/ui/Pill";
 import SectionHeading from "../components/ui/SectionHeading";
 import { projects } from "../data/projects";
+import zabgoVideo from "../assets/Zabgo.mp4";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -14,41 +14,43 @@ export default function ProjectDetail() {
   }
 
   return (
-    <section className="relative py-24 sm:py-32 min-h-screen">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-12">
-        <div className="flex flex-col gap-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-3 items-center">
+    <section className="relative py-8 sm:py-12 md:py-16 min-h-screen">
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-3 sm:px-5 md:px-6">
+        <div className="flex flex-col gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
               <Link
                 to="/projects"
-                className="text-sm font-medium text-ink-300 hover:text-ink-100"
+                className="text-xs sm:text-sm font-medium text-ink-300 hover:text-ink-100"
               >
                 ← Back to projects
               </Link>
-              <Pill>{project.tag}</Pill>
+              <Pill className="text-xs">{project.tag}</Pill>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {project.live && (
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-violet-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-violet-400"
+                  className="inline-flex items-center gap-2 rounded-lg sm:rounded-xl bg-[linear-gradient(135deg,#010F55_0%,#0654B0_45%,#00022A_100%)] px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white shadow-[0_0_30px_-8px_rgba(6,84,176,0.45)] transition hover:bg-cyan-400"
                 >
                   Live demo
-                  <ExternalLink size={14} />
+                  <ExternalLink size={14} className="sm:w-4 sm:h-4" />
                 </a>
               )}
-              <a
-                href={project.code}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-ink-100 transition hover:border-violet-400 hover:text-violet-400"
-              >
-                Source code
-                <ExternalLink size={14} />
-              </a>
+              {project.code && (
+                <a
+                  href={project.code}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg sm:rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-ink-100 transition hover:border-cyan-400 hover:text-cyan-400"
+                >
+                  Source code
+                  <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -59,31 +61,31 @@ export default function ProjectDetail() {
           />
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.9fr]">
-          <article className="space-y-10">
-            <div className="space-y-5 rounded-3xl glass p-8 border border-white/10 shadow-glow">
+        <div className="grid gap-5 sm:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <article className="space-y-4 sm:space-y-5">
+            <div className="space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 shadow-glow sm:space-y-4 sm:p-6">
               <div>
-                <h3 className="text-lg font-semibold text-ink-100">The problem</h3>
-                <p className="mt-3 text-ink-400 leading-relaxed">{project.caseStudy.problem}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-cyan-400">The problem</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-400 sm:text-[15px]">{project.caseStudy.problem}</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-ink-100">The solution</h3>
-                <p className="mt-3 text-ink-400 leading-relaxed">{project.caseStudy.solution}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-cyan-400">The solution</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-400 sm:text-[15px]">{project.caseStudy.solution}</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-ink-100">My role</h3>
-                <p className="mt-3 text-ink-400 leading-relaxed">{project.caseStudy.role}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-cyan-400">My role</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-400 sm:text-[15px]">{project.caseStudy.role}</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-ink-100">Impact</h3>
-                <p className="mt-3 text-ink-400 leading-relaxed">{project.caseStudy.impact}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-cyan-400">Impact</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-400 sm:text-[15px]">{project.caseStudy.impact}</p>
               </div>
             </div>
 
             {project.caseStudy.highlights?.length > 0 && (
-              <div className="rounded-3xl glass p-8 border border-white/10 shadow-glow">
-                <h3 className="text-lg font-semibold text-ink-100">Highlights</h3>
-                <ul className="mt-5 list-disc space-y-3 pl-5 text-ink-400">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 shadow-glow sm:p-6">
+                <h3 className="text-base font-semibold text-cyan-400 sm:text-lg">Highlights</h3>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-400 sm:text-[15px]">
                   {project.caseStudy.highlights.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -92,30 +94,42 @@ export default function ProjectDetail() {
             )}
           </article>
 
-          <aside className="space-y-6 rounded-3xl glass border border-white/10 p-8 shadow-glow">
+          <aside className="space-y-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 shadow-glow backdrop-blur-xl sm:space-y-5 sm:p-6">
             <div>
-              <h4 className="text-sm uppercase tracking-[0.24em] text-ink-500">Tech stack</h4>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <h4 className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-cyan-400">Tech stack</h4>
+              <div className="mt-3 flex flex-wrap gap-2">
                 {project.tech.map((item) => (
-                  <Pill key={item} className="text-[11px]">
+                  <Pill key={item} className="text-[10px] sm:text-[11px] border-white/10 bg-white/[0.04] text-ink-300">
                     {item}
                   </Pill>
                 ))}
               </div>
             </div>
 
-            {project.caseStudy.results && (
-              <div>
-                <h4 className="text-sm uppercase tracking-[0.24em] text-ink-500">Results</h4>
-                <p className="mt-3 text-ink-400 leading-relaxed">{project.caseStudy.results}</p>
+            {project.slug === "smart-ride-sharing-system" && (
+              <div className="mx-auto w-full max-w-[280px] rounded-[2rem] border border-white/15 bg-black/80 p-2 shadow-[0_0_35px_rgba(6,84,176,0.18)]">
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+                  <video
+                    className="aspect-[9/16] w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={zabgoVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             )}
 
-            <div className="flex flex-wrap gap-3 pt-4">
-              <Button as={Link} to="/projects" variant="secondary">
-                Back to all projects
-              </Button>
-            </div>
+            {project.caseStudy.results && (
+              <div className="rounded-2xl border border-white/10 bg-base-950/70 p-3 sm:p-4">
+                <h4 className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-cyan-400">Results</h4>
+                <p className="mt-2 text-sm leading-relaxed text-ink-300">{project.caseStudy.results}</p>
+              </div>
+            )}
           </aside>
         </div>
       </div>

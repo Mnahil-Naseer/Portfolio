@@ -9,7 +9,7 @@ export default function ThreeHero() {
     if (!canvas) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x050814);
+    scene.background = new THREE.Color(0x00022a);
 
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
     camera.position.set(0, 1.6, 4.5);
@@ -21,11 +21,11 @@ export default function ThreeHero() {
     const ambient = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambient);
 
-    const keyLight = new THREE.PointLight(0xc68cff, 1.2, 15);
+    const keyLight = new THREE.PointLight(0x0654b0, 1.2, 15);
     keyLight.position.set(2.5, 2, 3);
     scene.add(keyLight);
 
-    const fillLight = new THREE.PointLight(0x4da7ff, 0.65, 16);
+    const fillLight = new THREE.PointLight(0x9598a1, 0.65, 16);
     fillLight.position.set(-2.5, 1.5, 2.5);
     scene.add(fillLight);
 
@@ -38,7 +38,7 @@ export default function ThreeHero() {
 
     const orbGeometry = new THREE.SphereGeometry(1.05, 64, 64);
     const orbMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x7b3ff5,
+      color: 0x0654b0,
       roughness: 0.18,
       metalness: 0.55,
       transmission: 0.6,
@@ -51,7 +51,7 @@ export default function ThreeHero() {
 
     const ringGeometry = new THREE.TorusGeometry(1.8, 0.06, 24, 120);
     const ringMaterial = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
+      color: 0x0654b0,
       transparent: true,
       opacity: 0.28,
     });
@@ -61,7 +61,7 @@ export default function ThreeHero() {
 
     const accentGeometry = new THREE.TorusGeometry(2.4, 0.02, 12, 120);
     const accentMaterial = new THREE.MeshBasicMaterial({
-      color: 0x3b82f6,
+      color: 0x9598a1,
       transparent: true,
       opacity: 0.18,
     });
@@ -83,7 +83,7 @@ export default function ThreeHero() {
     particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0xbfdbfe,
+      color: 0xe2e8f0,
       size: 0.04,
       transparent: true,
       opacity: 0.8,
@@ -134,7 +134,7 @@ export default function ThreeHero() {
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-full rounded-[2rem] bg-[#050814]"
+      className="w-full h-full rounded-[2rem] bg-base-950"
       style={{ minHeight: 520 }}
     />
   );

@@ -30,14 +30,14 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 sm:py-36">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-16">
+    <section id="about" className="relative py-16 sm:py-28 md:py-36">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-12 sm:gap-16">
         <SectionHeading
           eyebrow="About"
           heading="A product-minded engineer who treats craft like a feature."
         />
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -47,7 +47,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass glass-hover rounded-2xl p-6 flex flex-col gap-4"
             >
-              <div className="h-10 w-10 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-violet-400">
+              <div className="h-10 w-10 rounded-lg border border-white/10 bg-white/[0.05] flex items-center justify-center text-cyan-400">
                 <f.icon size={18} />
               </div>
               <h3 className="font-display text-lg font-medium text-ink-100">{f.title}</h3>
@@ -56,7 +56,7 @@ export default function About() {
           ))}
         </div>
 
-        <div className="glass rounded-2xl px-6 py-10 grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <div className="glass grid grid-cols-1 gap-6 rounded-2xl px-4 py-6 sm:grid-cols-2 sm:px-6 sm:py-8 lg:grid-cols-4 lg:gap-8">
           {stats.map((s) => (
             <StatCounter key={s.label} {...s} />
           ))}

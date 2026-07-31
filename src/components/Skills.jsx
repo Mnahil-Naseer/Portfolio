@@ -5,15 +5,15 @@ import { skillCategories } from "../data/skills";
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-28 sm:py-36 bg-base-900/40">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-14">
+    <section id="skills" className="relative py-16 sm:py-28 md:py-36 bg-base-900/40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-10 sm:gap-14">
         <SectionHeading
           eyebrow="Skills"
           heading="A toolkit built for modern products."
           subtext="Languages, frameworks, and tools I reach for when shipping production-grade web and mobile software."
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
