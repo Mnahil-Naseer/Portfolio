@@ -24,10 +24,11 @@ export default function Hero() {
       className="relative flex min-h-screen items-center overflow-hidden bg-grid pb-12 pt-24 sm:pb-20 sm:pt-28 md:pt-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-grad-radial" />
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <div className="relative mx-auto grid w-full max-w-6xl min-w-0 grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <ThreeBackground />
         {/* Left column */}
         <motion.div
+          className="flex min-w-0 flex-col gap-6"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
@@ -102,7 +103,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative min-w-0 w-full">
           <div className="absolute -inset-6 rounded-full bg-grad-primary opacity-20 blur-3xl" />
           <CodeCard />
         </div>

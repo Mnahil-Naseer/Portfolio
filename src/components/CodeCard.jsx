@@ -34,7 +34,7 @@ export default function CodeCard() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-[460px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-base-900/90 px-3 py-3 shadow-glow backdrop-blur-xl sm:max-w-[520px] sm:px-5 sm:py-5"
+      className="relative mx-auto w-full max-w-full min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-base-900/90 px-3 py-3 shadow-glow backdrop-blur-xl sm:max-w-[520px] sm:px-5 sm:py-5"
       style={{ rotateX, rotateY, perspective: 1200 }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();

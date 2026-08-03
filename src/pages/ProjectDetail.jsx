@@ -14,7 +14,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <section className="relative py-8 sm:py-12 md:py-16 min-h-screen">
+    <section className="relative pt-24 pb-8 sm:pt-28 sm:pb-12 md:pt-32 md:pb-16 min-h-screen">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-3 sm:px-5 md:px-6">
         <div className="flex flex-col gap-3 sm:gap-4">
           <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
@@ -111,11 +111,12 @@ export default function ProjectDetail() {
                 <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
                   <video
                     className="aspect-[9/16] w-full object-cover"
+                    controls
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                   >
                     <source src={zabgoVideo} type="video/mp4" />
                     Your browser does not support the video tag.

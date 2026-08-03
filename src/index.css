@@ -25,6 +25,16 @@ body {
   background-attachment: fixed;
 }
 
+main {
+  padding-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-top: 5rem;
+  }
+}
+
 ::selection {
   background: rgba(6,84,176,0.35);
 }
@@ -55,6 +65,10 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* scrollbar */

@@ -16,7 +16,7 @@ export default function ProjectsPage() {
             align="center"
           />
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-            <Button as={Link} to="/" variant="secondary">
+            <Button as={Link} href="/" variant="secondary">
               Back to home
             </Button>
             <a

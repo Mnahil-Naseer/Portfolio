@@ -18,9 +18,9 @@ export default function Button({ as = "button", href, variant = "primary", child
   };
 
   if (Comp === "a") {
-    passThroughProps.href = href;
+    passThroughProps.href = href ?? props.href;
   } else if (Comp !== "button") {
-    passThroughProps.to = href;
+    passThroughProps.to = props.to ?? href;
   }
 
   return <Comp {...passThroughProps}>{children}</Comp>;

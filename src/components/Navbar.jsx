@@ -6,8 +6,8 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Resume", href: "/#resume" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Resume", href: "/#resume", anchor: true },
+  { label: "Contact", href: "/#contact", anchor: true },
 ];
 
 export default function Navbar() {
@@ -34,13 +34,23 @@ export default function Navbar() {
         <ul className="hidden items-center gap-6 font-body text-xs text-ink-300 sm:text-sm md:flex lg:gap-8">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
-                to={link.href}
-                className="relative whitespace-nowrap transition-colors hover:text-ink-100"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-grad-primary transition-all duration-300 group-hover:w-full" />
-              </Link>
+              {link.anchor ? (
+                <a
+                  href={link.href}
+                  className="relative whitespace-nowrap transition-colors hover:text-ink-100"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-grad-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              ) : (
+                <Link
+                  to={link.href}
+                  className="relative whitespace-nowrap transition-colors hover:text-ink-100"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-grad-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -71,13 +81,23 @@ export default function Navbar() {
           <ul className="flex flex-col gap-3 text-sm text-ink-300">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
-                  to={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block rounded-lg px-2 py-2 transition-colors hover:bg-white/[0.05] hover:text-ink-100"
-                >
-                  {link.label}
-                </Link>
+                {link.anchor ? (
+                  <a
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-lg px-2 py-2 transition-colors hover:bg-white/[0.05] hover:text-ink-100"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-lg px-2 py-2 transition-colors hover:bg-white/[0.05] hover:text-ink-100"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
