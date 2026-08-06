@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#01060f"/>
+  <rect x="70" y="70" width="1060" height="490" rx="32" fill="#07111f" stroke="#0f6fd6" stroke-width="2"/>
+  <path d="M220 430h220" stroke="#22d3ee" stroke-width="8" stroke-linecap="round"/>
+  <path d="M220 390l90-90 70 70 120-140 90 120" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="220" y="240" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="700">Mnahil Naseer</text>
+  <text x="220" y="295" fill="#22d3ee" font-family="Inter, Arial, sans-serif" font-size="30">Full Stack &amp; Mobile Developer</text>
+  <text x="220" y="360" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">React · React Native · Node.js · Supabase</text>
+</svg>

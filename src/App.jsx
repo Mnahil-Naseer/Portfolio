@@ -1,12 +1,20 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetail from "./pages/ProjectDetail";
+import { applySeo } from "./seo";
 
 export default function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    applySeo(location.pathname);
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen bg-base-950 text-ink-100 font-body overflow-x-hidden">
       <Navbar />

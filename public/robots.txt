@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mnahilnaseer.vercel.app/sitemap.xml

@@ -1,13 +1,25 @@
+import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import Pill from "../components/ui/Pill";
 import SectionHeading from "../components/ui/SectionHeading";
 import { projects } from "../data/projects";
 import zabgoVideo from "../assets/Zabgo.mp4";
+import { applySeo } from "../seo";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((project) => project.slug === slug);
+
+  useEffect(() => {
+    if (!project) return;
+
+    applySeo(`/projects/${project.slug}`, {
+      title: `${project.title} — Case Study | Mnahil Naseer`,
+      description: project.description,
+      canonical: `https://mnahilnaseer.vercel.app/projects/${project.slug}`,
+    });
+  }, [project]);
 
   if (!project) {
     return <Navigate to="/projects" replace />;
