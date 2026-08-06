@@ -82,11 +82,12 @@ export function applySeo(pathname, overrides = {}) {
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
   const route = Object.keys(seoConfig).find((key) => normalizedPath === key || normalizedPath.startsWith(`${key}`));
   const projectSeo = buildProjectSeo(pathname);
-  const config = projectSeo || overrides || seoConfig[route] || seoConfig["/"];
+  const baseConfig = seoConfig[route] || seoConfig["/"];
+  const config = projectSeo || (Object.keys(overrides).length > 0 ? { ...baseConfig, ...overrides } : baseConfig);
 
-  const title = overrides.title || config.title;
-  const description = overrides.description || config.description;
-  const canonical = overrides.canonical || config.canonical || `${siteUrl}/`;
+  const title = config.title;
+  const description = config.description;
+  const canonical = config.canonical || `${siteUrl}/`;
 
   document.title = title;
   setMeta("meta[name='description']", {}, description);
